@@ -1,0 +1,14 @@
+body{
+    display: grid;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+canvas{
+
+    width: 80%;
+    aspect-ratio: 480 /360;
+    border: solid;
+    margin: auto;
+}
