@@ -10,7 +10,7 @@ export class Game {
         /** @type {HTMLcanvasElement} */
         this.canvas = document.querySelector('canvas')
         this.canvas.width = 480
-        this.canvas.heigth = 360
+        this.canvas.height = 360
         this.ctx = this.canvas.getContext('2d')
 
         this.background = new Background(this.ctx)
