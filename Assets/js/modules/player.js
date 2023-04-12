@@ -6,6 +6,10 @@ export class Player{
     destinationX = 25
     destinationY = 100
 
+    fps = 1000 / 12 
+    framesLength = 2 // nombre d'image ou frame en ligne 
+    
+
 
     /**
      * 
@@ -38,7 +42,10 @@ export class Player{
      * 
      * @param {number} timestamp 
      */
-      update(timestamp) {}
+      update(timestamp) {
+        const frameIndex = Math.floor(timestamp/ this.fps) % this.framesLength
+        this.sourceX = frameIndex * this.frameWidth
+      }
     
 }
 
