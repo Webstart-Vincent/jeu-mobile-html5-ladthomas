@@ -7,7 +7,7 @@ body{
 
 canvas{
 
-    width: 80%;
+    width: 60%;
     aspect-ratio: 480 /360;
     border: solid;
     margin: auto;
