@@ -1,4 +1,5 @@
 import { Background } from "./background.js"
+import { Player } from "./player.js"
 
 
 export class Game {
@@ -14,6 +15,8 @@ export class Game {
         this.ctx = this.canvas.getContext('2d')
 
         this.background = new Background(this.ctx)
+
+        this.player = new Player(this.ctx)
 
         this.animate(0)
     }
@@ -32,6 +35,9 @@ export class Game {
         this.background.draw()
         this.background.update(deltaTime)
         //console.log('texte')
+
+        this.player.draw()
+        this.player.update(timestamp)
 
         window.requestAnimationFrame(this.animate)
     }
