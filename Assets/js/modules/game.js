@@ -1,5 +1,6 @@
 import { Background } from "./background.js"
 import { Player } from "./player.js"
+import { InputHundler } from "./input-handler.js"
 
 
 export class Game {
@@ -14,10 +15,15 @@ export class Game {
         this.canvas.height = 360
         this.ctx = this.canvas.getContext('2d')
 
+
+        this.inputHundler = new InputHundler()
+
+
         this.background = new Background(this.ctx)
 
-        this.player = new Player(this.ctx)
+        this.player = new Player(this)
 
+        this.lastTimeStamp = 0
         this.animate(0)
     }
 

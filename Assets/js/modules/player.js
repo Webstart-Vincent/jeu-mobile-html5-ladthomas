@@ -1,3 +1,8 @@
+import { Game } from "./game.js"
+import { key } from "./input-handler.js"
+
+
+
 export class Player{
     sourceX = 0
     sourceY = 0
@@ -8,18 +13,22 @@ export class Player{
 
     fps = 1000 / 12 
     framesLength = 2 // nombre d'image ou frame en ligne 
+
+    speed = 3
     
 
 
     /**
      * 
-     * @param {canvasRenderingContext2D} ctx 
+     * @param {Game} game
+     *
      */
-    constructor(ctx) {
+    constructor(game) {
         this.image = new Image()
         this.image.src = './Assets/imag/player-spritesheet.png'
     
-        this.ctx = ctx
+        this.ctx = game.ctx
+        this.inptKeys = game.inputHundler.keys
       }
 
       draw() {
@@ -45,6 +54,8 @@ export class Player{
       update(timestamp) {
         const frameIndex = Math.floor(timestamp/ this.fps) % this.framesLength
         this.sourceX = frameIndex * this.frameWidth
+
+        if(this.inptKeys.has(key.ArrowUp)) this.destinationY -= this.speed
       }
     
 }
