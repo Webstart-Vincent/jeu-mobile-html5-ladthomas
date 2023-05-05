@@ -6,8 +6,8 @@ import { key } from "./input-handler.js"
 export class Player{
     sourceX = 0
     sourceY = 0
-    frameWidth = 77.2
-    frameHeight = 72
+    //frameWidth = 77.2
+    //frameHeight = 72
     destinationX = 25
     destinationY = 100
 
@@ -29,6 +29,13 @@ export class Player{
     
         this.ctx = game.ctx
         this.inptKeys = game.inputHundler.keys
+
+        this.frameWidth = 77.2
+        this.frameHeight = 72
+
+        const {canvas} = game 
+        this.maxDestinationX = canvas.width - this.frameWidth
+        this.maxDestinationY = canvas.height - this.frameHeight
       }
 
       draw() {
@@ -56,6 +63,14 @@ export class Player{
         this.sourceX = frameIndex * this.frameWidth
 
         if(this.inptKeys.has(key.ArrowUp)) this.destinationY -= this.speed
+        if(this.inptKeys.has(key.ArrowRight)) this.destinationX += this.speed
+        if(this.inptKeys.has(key.ArrowDown)) this.destinationY += this.speed
+        if(this.inptKeys.has(key.ArrowLeft)) this.destinationX -= this.speed
+
+        if(this.destinationY < 0) this.destinationY = 0
+        if(this.destinationX < 0) this.destinationX = 0
+        if(this.destinationY > this.maxDestinationY) this.destinationY = this.maxDestinationY
+        if(this.destinationX > this.maxDestinationX) this.destinationX = this.maxDestinationX
       }
     
 }
