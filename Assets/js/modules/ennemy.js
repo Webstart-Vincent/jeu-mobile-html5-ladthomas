@@ -19,8 +19,8 @@ export class Ennemy {
         this.ctx = game.ctx
         
         const { canvas} = game
-        this.canvasWidth = canvas.Width
-        this.canvasHeight = canvas.Height
+        this.canvasWidth = canvas.width
+        this.canvasHeight = canvas.height
 
         this.frameWidth = 112
         this.frameHeight = 101

@@ -1,4 +1,4 @@
-export class InputHundler{
+export class InputHandler{
     constructor(){
         
         /** @type {Set<key>} */

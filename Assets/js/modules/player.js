@@ -28,7 +28,7 @@ export class Player{
         this.image.src = './Assets/imag/player-spritesheet.png'
     
         this.ctx = game.ctx
-        this.inptKeys = game.inputHundler.keys
+        this.inptKeys = game.inputHandler.keys
 
         this.frameWidth = 77.2
         this.frameHeight = 72
@@ -38,7 +38,7 @@ export class Player{
         this.maxDestinationY = canvas.height - this.frameHeight
       }
 
-      draw() {
+     /* draw() {
         this.ctx.drawImage(
             this.image,
             this.sourceX,
@@ -53,7 +53,24 @@ export class Player{
             
             
             )
-      }
+      }*/
+
+
+  draw() {
+    // La source c’est le fichier .png
+    // La destination c’est le canvas
+    this.ctx.drawImage(
+      this.image,
+      this.sourceX,
+      this.sourceY,
+      this.frameWidth, // cadrage dans la source
+      this.frameHeight, // cadrage dans la source
+      this.destinationX,
+      this.destinationY,
+      this.frameWidth, // dimension dans la destination
+      this.frameHeight // dimension dans la destination
+    )
+  }
     /**
      * 
      * @param {number} timestamp 
@@ -67,10 +84,17 @@ export class Player{
         if(this.inptKeys.has(key.ArrowDown)) this.destinationY += this.speed
         if(this.inptKeys.has(key.ArrowLeft)) this.destinationX -= this.speed
 
-        if(this.destinationY < 0) this.destinationY = 0
+        /* if(this.destinationY < 0) this.destinationY = 0
         if(this.destinationX < 0) this.destinationX = 0
         if(this.destinationY > this.maxDestinationY) this.destinationY = this.maxDestinationY
-        if(this.destinationX > this.maxDestinationX) this.destinationX = this.maxDestinationX
+        if(this.destinationX > this.maxDestinationX) this.destinationX = this.maxDestinationX */
+
+        if (this.destinationY < 0) this.destinationY = 0
+        if (this.destinationX < 0) this.destinationX = 0
+        if (this.destinationY > this.maxDestinationY)
+          this.destinationY = this.maxDestinationY
+        if (this.destinationX > this.maxDestinationX)
+          this.destinationX = this.maxDestinationX
       }
     
 }
