@@ -5,7 +5,7 @@ export class BananaSkin {
   sourceY = 0
 
   fps = 1000 / 12
-  framesLength = 16
+  framesLength = 3
 
   /**
    * @param {Game} game
@@ -20,8 +20,8 @@ export class BananaSkin {
     this.canvasWidth = canvas.width
     this.canvasHeight = canvas.height
 
-    this.frameWidth = 49
-    this.frameHeight = 54
+    this.frameWidth = 112
+    this.frameHeight = 101
 
     this.reset()
   }
